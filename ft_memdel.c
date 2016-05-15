@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmojela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/15 14:45:47 by gmojela           #+#    #+#             */
-/*   Updated: 2016/05/15 14:45:51 by gmojela          ###   ########.fr       */
+/*   Created: 2016/05/15 14:18:06 by gmojela           #+#    #+#             */
+/*   Updated: 2016/05/15 14:18:20 by gmojela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_memdel(void **ap)
 {
-	char	*tmp;
-
-	tmp = (char *)malloc(size * sizeof(char));
-	if (!tmp)
-		return (NULL);
-	ft_bzero((void *)tmp, size);
-	return (tmp);
+	if (!ap)
+		return ;
+	if (*ap != 0)
+	{
+		free(*ap);
+		*ap = 0;
+	}
 }

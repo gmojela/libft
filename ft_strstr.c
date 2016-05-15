@@ -5,33 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmojela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/13 17:01:53 by gmojela           #+#    #+#             */
-/*   Updated: 2016/05/13 17:49:21 by gmojela          ###   ########.fr       */
+/*   Created: 2016/05/15 14:04:50 by gmojela           #+#    #+#             */
+/*   Updated: 2016/05/15 14:26:00 by gmojela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strstr(const char *big, const char *little)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	int count_little;
-	int count_big;
+	const char		*tmp1;
+	const char		*tmp2;
 
-	count_little = 1;
-	count_big = 1;
-	while (count_big >= (big - little) + 1)
+	if (*s2 == 0)
+		return ((char *)s1);
+	while (*s1 != 0)
 	{
-		while (big[count_big + count_little - 1] == little[count_little])
+		tmp1 = s1;
+		tmp2 = s2;
+		while (*tmp1 == *tmp2 && *tmp1 != 0 && *tmp2 != 0)
 		{
-			count_little++;
-			if (count_little > ft_strlen(little))
-			   return ((char *)little);
+			tmp1++;
+			tmp2++;
 		}
-	count_little = 1;
-	count_big++;
+		if (*tmp2 == 0)
+			return ((char *)s2);
+		s1++;
 	}
-	return(NULL);
+	return (0);
 }
-
-
-

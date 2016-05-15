@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmojela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ljafta <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/15 14:45:47 by gmojela           #+#    #+#             */
-/*   Updated: 2016/05/15 14:45:51 by gmojela          ###   ########.fr       */
+/*   Created: 2016/05/12 18:24:34 by ljafta            #+#    #+#             */
+/*   Updated: 2016/05/14 15:15:35 by ljafta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_strdel(char **as)
 {
-	char	*tmp;
-
-	tmp = (char *)malloc(size * sizeof(char));
-	if (!tmp)
-		return (NULL);
-	ft_bzero((void *)tmp, size);
-	return (tmp);
+	if (as != 0)
+	{
+		if (*as != 0)
+		{
+			free(*as);
+			*as = 0;
+		}
+	}
 }
